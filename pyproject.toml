@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "finance-logs-pipeline"
+version = "0.1.0"
+description = "Automated expense transaction ingestion from multiple sources to Notion"
+authors = ["Your Name"]
+readme = "README.md"
+packages = [{include = "finance_logs_pipeline"}]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.14"
+requests = "^2.31.0"
+openai = "^1.18.0"
+attrs = "^23.1.0"
+rich = "^13.7.0"
+loguru = "^0.7.2"
+nothion = "^0.4.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.0"
+ruff = "^0.9.10"
+mypy = "^1.15.0"
+pyinstaller = "^6.12.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+finance-logs = "finance_logs_pipeline.main:main"
+clipboard-to-txt = "finance_logs_pipeline.utils.clipboard:main"
