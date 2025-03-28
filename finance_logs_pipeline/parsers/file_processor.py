@@ -20,11 +20,14 @@ class FileProcessor:
     @staticmethod
     def _clean_transaction(transaction: Transaction) -> Transaction:
         """Adjust the amount of a transaction."""
-
+        transaction.description = transaction.description.capitalize()
         transaction.amount = abs(transaction.amount)
 
         if transaction.amount > 1000:
             transaction.amount /= 1000
+
+        transaction.amount = round(transaction.amount, 1)
+
         return transaction
     
     def process_file(self, file_path: Path) -> List[Transaction]:

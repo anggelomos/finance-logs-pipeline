@@ -188,3 +188,4 @@ config.json
 sandbox/
 logs/
 statements/
+sandbox-playground/
